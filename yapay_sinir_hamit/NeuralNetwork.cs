@@ -166,7 +166,7 @@ namespace yapay_sinir_hamit
                 }
                 currentError /= trainingInputs.Length; // Ortalama hata
                 epoch++;
-            }ğitir
+            }
 
             return currentError;
         }
@@ -233,3 +233,4 @@ namespace yapay_sinir_hamit
 // epochs: Maksimum yineleme sayısı (100,000)
 // Eğitim bu iki koşuldan biri sağlanınca durur
 // Sonuç olarak, eğitim süreci ağın ağırlıklarını sürekli ayarlayarak hata değerini azaltmaya çalışır ve zamanla ağ doğru harfi tanımayı öğrenir.
+
