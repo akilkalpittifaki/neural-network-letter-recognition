@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "yapay_sinir_hamit/1.0.0": {
+        "runtime": {
+          "yapay_sinir_hamit.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "yapay_sinir_hamit/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,16 @@
+C:\Users\Acer\Desktop\v\yapay_sinir_hamit\yapay_sinir_hamit\bin\Release\net8.0-windows\yapay_sinir_hamit.exe
+C:\Users\Acer\Desktop\v\yapay_sinir_hamit\yapay_sinir_hamit\bin\Release\net8.0-windows\yapay_sinir_hamit.deps.json
+C:\Users\Acer\Desktop\v\yapay_sinir_hamit\yapay_sinir_hamit\bin\Release\net8.0-windows\yapay_sinir_hamit.runtimeconfig.json
+C:\Users\Acer\Desktop\v\yapay_sinir_hamit\yapay_sinir_hamit\bin\Release\net8.0-windows\yapay_sinir_hamit.dll
+C:\Users\Acer\Desktop\v\yapay_sinir_hamit\yapay_sinir_hamit\bin\Release\net8.0-windows\yapay_sinir_hamit.pdb
+C:\Users\Acer\Desktop\v\yapay_sinir_hamit\yapay_sinir_hamit\obj\Release\net8.0-windows\yapay_sinir_hamit.Form1.resources
+C:\Users\Acer\Desktop\v\yapay_sinir_hamit\yapay_sinir_hamit\obj\Release\net8.0-windows\yapay_sinir_hamit.csproj.GenerateResource.cache
+C:\Users\Acer\Desktop\v\yapay_sinir_hamit\yapay_sinir_hamit\obj\Release\net8.0-windows\yapay_sinir_hamit.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Acer\Desktop\v\yapay_sinir_hamit\yapay_sinir_hamit\obj\Release\net8.0-windows\yapay_sinir_hamit.AssemblyInfoInputs.cache
+C:\Users\Acer\Desktop\v\yapay_sinir_hamit\yapay_sinir_hamit\obj\Release\net8.0-windows\yapay_sinir_hamit.AssemblyInfo.cs
+C:\Users\Acer\Desktop\v\yapay_sinir_hamit\yapay_sinir_hamit\obj\Release\net8.0-windows\yapay_sinir_hamit.csproj.CoreCompileInputs.cache
+C:\Users\Acer\Desktop\v\yapay_sinir_hamit\yapay_sinir_hamit\obj\Release\net8.0-windows\yapay_sinir_hamit.dll
+C:\Users\Acer\Desktop\v\yapay_sinir_hamit\yapay_sinir_hamit\obj\Release\net8.0-windows\refint\yapay_sinir_hamit.dll
+C:\Users\Acer\Desktop\v\yapay_sinir_hamit\yapay_sinir_hamit\obj\Release\net8.0-windows\yapay_sinir_hamit.pdb
+C:\Users\Acer\Desktop\v\yapay_sinir_hamit\yapay_sinir_hamit\obj\Release\net8.0-windows\yapay_sinir_hamit.genruntimeconfig.cache
+C:\Users\Acer\Desktop\v\yapay_sinir_hamit\yapay_sinir_hamit\obj\Release\net8.0-windows\ref\yapay_sinir_hamit.dll

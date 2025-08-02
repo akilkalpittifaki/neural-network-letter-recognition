@@ -1,0 +1,86 @@
+Uygulama Çalışma Sırası ve Fonksiyonlar
+1. Temel Sınıflar ve İşlevleri
+Neuron.cs
+Neuron sınıfı: Sinir ağının temel yapı taşı
+Neuron(int inputCount): Nöron oluşturur ve ağırlıkları rasgele başlatır
+CalculateOutput(double[] inputs): Giriş verilerine göre çıkış hesaplar
+Sigmoid(double x): Aktivasyon fonksiyonu (0-1 arası değer üretir)
+SigmoidDerivative(double x): Öğrenme sürecinde kullanılan türev fonksiyonu
+Layer.cs
+Layer sınıfı: Nöronlardan oluşan bir katmanı temsil eder
+Layer(int neuronCount, int inputsPerNeuron): Belirli sayıda nöron içeren katman oluşturur
+CalculateOutputs(double[] inputs): Katmandaki tüm nöronlar için çıkış hesaplar
+NeuralNetwork.cs
+NeuralNetwork sınıfı: Tam sinir ağı yapısını uygular
+NeuralNetwork(int inputSize, int hiddenSize, int outputSize, double learningRate): 3 katmanlı YSA oluşturur
+FeedForward(double[] inputs): İleri besleme algoritması (tahmin yapar)
+Backpropagate(double[] inputs, double[] targets): Geriye yayılım algoritması (öğrenme)
+Train(double[][] trainingInputs, double[][] trainingOutputs, int epochs, double epsilon): Ağı eğitir
+Predict(double[] input): En yüksek çıkış değerine sahip sınıfı bulur
+DataProvider.cs
+GetTrainingInputs(): A-B-C-D-E harfleri için giriş verilerini sağlar
+GetTrainingOutputs(): Her harf için beklenen çıkış (hedef) verilerini sağlar
+CreateInputFromMatrix(bool[,] matrix): Kullanıcının çizdiği harfi giriş verilerine dönüştürür
+GetLetterFromPrediction(int prediction): Tahmin edilen sınıfı harfe çevirir
+2. Form1.cs (Kullanıcı Arayüzü)
+Başlangıç Fonksiyonları
+Form1(): Form başlatılır
+InitializeComponent(): Form tasarım bileşenleri yüklenir
+InitializeCustomComponents(): Özel bileşenler (butonlar, panel) oluşturulur
+InitializeNeuralNetwork(): Sinir ağı oluşturulur (35 giriş, 15 gizli, 5 çıkış)
+Kullanıcı Etkileşimleri
+GridButton_Click: Matris üzerinde tıklanan butonları siyah/beyaz yapar
+ClearButton_Click: Çizim matrisini temizler
+RemoveDrawingsButton_Click: Çizim matrisini temizler
+TrainButton_Click: Sinir ağını eğitir
+TestButton_Click: Çizilen harfi tanımlar
+3. Algoritma Çalışma Sırası
+Uygulama Başlatıldığında:
+Form1() -> InitializeComponent() -> InitializeCustomComponents()
+Çizim matrisi (7x5) ve butonlar oluşturulur
+InitializeNeuralNetwork() ile sinir ağı başlatılır
+Eğitim Sürecinde ("Eğit" butonuna basıldığında):
+TrainButton_Click() çalışır
+DataProvider.GetTrainingInputs() ve GetTrainingOutputs() ile eğitim verileri alınır
+neuralNetwork.Train() fonksiyonu çağrılır:
+Her eğitim örneği için FeedForward() (ileri besleme) çalıştırılır
+Çıkış hataları hesaplanır
+Backpropagate() ile ağırlıklar güncellenir
+Hata oranı epsilon değerinin altına düşene kadar devam edilir
+Tanıma Sürecinde ("Tanımla" butonuna basıldığında):
+TestButton_Click() çalışır
+DataProvider.CreateInputFromMatrix() ile çizilen harf giriş verilerine dönüştürülür
+neuralNetwork.FeedForward() ile ileri besleme yapılır:
+layers[0].CalculateOutputs() ile gizli katman çıkışları hesaplanır
+layers[1].CalculateOutputs() ile çıkış katmanı değerleri hesaplanır
+neuralNetwork.Predict() ile en yüksek değerli sınıf bulunur
+DataProvider.GetLetterFromPrediction() ile sınıf harfe dönüştürülür
+Sonuçlar arayüzde gösterilir
+
+
+4. Algoritma Detayları
+İleri Besleme (FeedForward):
+Giriş verileri (35 değer) gizli katmana gönderilir
+Her nöron: girişler × ağırlıklar + bias → sigmoid
+Gizli katman çıkışları (15 değer) çıkış katmanına gönderilir
+Çıkış katmanı hesaplanır (5 değer)
+En yüksek değere sahip nöron tahmin edilen harftir
+Geriye Yayılım (Backpropagation):
+Çıkış katmanı hataları: hedef - gerçek çıkış
+Gizli katman hataları: çıkış katmanı hatalarının geriye doğru yayılması
+Ağırlık güncellemesi: ağırlık += öğrenme_hızı × hata × giriş
+
+
+"Eğit" Butonuna Basınca Ne Oluyor?
+"Bu butona bastığımızda, ağa önceden tanımlanmış doğru A, B, C, D, E harf desenlerini (DataProvider içindekileri) gösteriyoruz."
+"Ağ, bu desenleri kendi rastgele ağırlıklarıyla işlemeye çalışıyor ve bir tahmin yapıyor (başlangıçta bu tahminler tamamen yanlış)."
+"Sonra, ağın yaptığı tahmin ile olması gereken doğru sonuç arasındaki hatayı hesaplıyoruz."
+"Geriye yayılım (backpropagation) algoritması devreye giriyor. Bu algoritma, hesaplanan hatayı kullanarak ağın içindeki tüm ağırlıkları minik adımlarla güncelliyor. Ağırlıklar öyle ayarlanıyor ki, bir dahaki sefere aynı harf geldiğinde ağın tahmini doğru sonuca daha yakın olsun."
+"Bu işlem, tanımladığımız 5 harf için ve belirlediğimiz hata payı (epsilon) veya tekrar sayısı (epoch) kriteri sağlanana kadar defalarca tekrarlanıyor."
+"Sonuç: 'Eğit' işlemi bittiğinde, ağın ağırlıkları artık rastgele değil; A, B, C, D, E harflerini tanımak üzere ayarlanmış oluyor."
+"Tanımla" Butonuna Basınca Ne Oluyor?
+"Kullanıcı olarak ekrandaki 7x5 matrise bir şekil çiziyoruz."
+"'Tanımla' butonuna bastığımızda, çizdiğimiz bu şekil, artık eğitilmiş olan sinir ağına giriş olarak veriliyor."
+"Ağ, bu yeni girişi ileri besleme (feedforward) yöntemiyle işliyor. Yani, giriş verisi katmanlardan sırayla geçiyor ve en son çıkış katmanına ulaşıyor."
+"Çıkış katmanında 5 nöron var (A, B, C, D, E için birer tane). Her nöron, çizilen şeklin kendi temsil ettiği harfe ne kadar benzediğine dair bir puan (0-1 arası) üretiyor."
+"Bu 5 puandan en yüksek olanı seçiyoruz ve 'Tanıma Sonucu' olarak ekranda gösteriyoruz."
