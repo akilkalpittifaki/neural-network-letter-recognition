@@ -8,6 +8,8 @@
 
 ![Neural Network Demo](ysa.png)
 
+!! Önce Eğitim, Sonra Tanımlayınız.
+
 ## 🚀 Özellikler
 
 - **Sıfırdan Yapay Sinir Ağı**: Üçüncü parti kütüphane kullanmadan geliştirilmiş MLP mimarisi
